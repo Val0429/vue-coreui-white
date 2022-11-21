@@ -1,0 +1,8 @@
+@if $enable-transitions {
+    .progress-bar-animated {
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+  

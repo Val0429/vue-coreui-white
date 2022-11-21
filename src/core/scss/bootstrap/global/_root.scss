@@ -1,0 +1,29 @@
+#{if(&, '&', ':root')} {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+    --#{$color}-100: #{darken($value, 20%)};
+    --#{$color}-200: #{darken($value, 15%)};
+    --#{$color}-300: #{darken($value, 10%)};
+    --#{$color}-400: #{darken($value, 5%)};
+    --#{$color}-500: #{$value};
+    --#{$color}-600: #{lighten($value, 5%)};
+    --#{$color}-700: #{lighten($value, 10%)};
+    --#{$color}-800: #{lighten($value, 15%)};
+    --#{$color}-900: #{lighten($value, 20%)};
+    --#{$color}-yiq: #{color-yiq($value)};
+  }
+
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  // Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-family-monospace: #{inspect($font-family-monospace)};
+}

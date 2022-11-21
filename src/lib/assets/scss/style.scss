@@ -1,0 +1,29 @@
+// If you want to override variables do it here
+
+@import "variables";
+
+// If you want to add something do it here
+@import "custom";
+// workspace override
+@import "./../../../../../src/scss/container/override";
+
+// @import '~@coreui/icons/css/coreui-icons.min.css';
+// /* Import Font Awesome Icons Set */
+// $fa-font-path: '~font-awesome/fonts/';
+// @import '~font-awesome/scss/font-awesome.scss';
+/* Import Simple Line Icons Set */
+$simple-line-font-path: '~simple-line-icons/fonts/';
+@import '~simple-line-icons/scss/simple-line-icons.scss';
+/* Import Flag Icons Set */
+@import '~flag-icon-css/css/flag-icon.min.css';
+
+/* Import Bootstrap Vue Styles */
+//@import '~bootstrap-vue/dist/bootstrap-vue.css';
+
+// Import styles
+@import "~@val/coreui/scss/coreui-val";
+
+@import "components-override";
+
+// ie fixes
+@import "ie-fix";
