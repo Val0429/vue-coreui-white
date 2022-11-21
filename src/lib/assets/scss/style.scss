@@ -21,7 +21,7 @@ $simple-line-font-path: '~simple-line-icons/fonts/';
 //@import '~bootstrap-vue/dist/bootstrap-vue.css';
 
 // Import styles
-@import "~@val/coreui/scss/coreui-val";
+@import "../../../core/scss/coreui-val";
 
 @import "components-override";
 
