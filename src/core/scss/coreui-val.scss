@@ -66,4 +66,11 @@
 
     // temp fixes
     @import "fixes";
+
+    /// Val: provide yiq colors
+    @each $color, $value in $theme-colors {
+        .#{$color}-yiq {
+            color: #{color-yiq($value)};
+        }
+    }
 }
