@@ -148,10 +148,10 @@ export default class SidebarNavItem extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.nav-item /deep/ .nav-item {
+.nav-item ::v-deep .nav-item {
     text-indent: 8px;
 }
-/deep/ .nav-icon {
+::v-deep .nav-icon {
     min-width: 1.3rem;
 }
 .dropdown-container {
