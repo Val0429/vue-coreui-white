@@ -1,3 +1,14 @@
+/*
+ * File: style.scss
+ * File Created: 2023-01-16 12:42:05
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified: 2023-12-13 04:53:34
+ * Modified By: Val Liu
+ * -----
+ */
+
 // If you want to override variables do it here
 
 @import "variables";
@@ -5,7 +16,7 @@
 // If you want to add something do it here
 @import "custom";
 // workspace override
-@import "./../../../../../src/scss/container/override";
+// @import "./../../../../../src/scss/container/override";
 
 // @import '~@coreui/icons/css/coreui-icons.min.css';
 // /* Import Font Awesome Icons Set */

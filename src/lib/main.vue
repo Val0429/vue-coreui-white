@@ -16,9 +16,13 @@
 </template>
 
 
-<script src="./index.vue.ts"></script>
+<script src="./main.ts"></script>
 
-
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'assets/scss/style';
+
+* {
+    // export the theme name
+    --theme-name: #{$theme-name};
+}
 </style>

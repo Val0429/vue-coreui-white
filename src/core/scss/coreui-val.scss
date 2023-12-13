@@ -4,8 +4,8 @@
  * Author: Val Liu <valuis0429@gmail.com>
  * 
  * -----
- * Last Modified:
- * Modified By:
+ * Last Modified: 2023-12-13 03:50:50
+ * Modified By: Val Liu
  * -----
  */
 
@@ -26,6 +26,7 @@
 // Mixins
 @import "mixins";
 
+// wrap the namespace
 .#{$theme-name} {
     // Animations
     @import "animate";
@@ -85,3 +86,4 @@
         }
     }
 }
+

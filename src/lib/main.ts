@@ -4,8 +4,8 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified:
- * Modified By:
+ * Last Modified: 2023-12-13 04:56:28
+ * Modified By: Val Liu
  * -----
  */
 
@@ -35,12 +35,21 @@ export class CoreUI extends Vue {
   //         scopedSlots: this.$scopedSlots
   //     });
   // }
-
-  private get thisRouter() {
+  get thisRouter() {
     let routers = FindRouter({
       path: this.$route.path,
     });
     return routers.length === 0 ? null : routers[routers.length - 1];
   }
+
+  // /// private helper
+  // className: string = "";
+  // private mounted() {
+  //   this.$nextTick(() => {
+  //     console.log("what is this?", this.$el);
+  //     const name = getComputedStyle(this.$el).getPropertyValue("--theme-name");
+  //     this.className = name;
+  //   });
+  // }
 }
 export default CoreUI;

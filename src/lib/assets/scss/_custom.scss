@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  * 
  * -----
- * Last Modified: 2023-12-13 01:54:35
+ * Last Modified: 2023-12-13 02:37:14
  * Modified By: Val Liu
  * -----
  */
@@ -14,9 +14,6 @@
 // Here you can add other styles
 
 $theme-name: "theme-coreui" !default;
-:export {
-    themeName: $theme-name;
-}
 
 /// navbrand
 $navbar-brand-width: 205px;
