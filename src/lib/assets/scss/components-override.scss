@@ -1,5 +1,17 @@
+/*
+ * File: components-override.scss
+ * File Created: 2023-01-16 12:42:05
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified: 2023-12-13 02:21:00
+ * Modified By: Val Liu
+ * -----
+ */
+
+/// Val [Theme] theme customization for custom component goes here.
 /// CoreUI
-#{$theme-name} {
+.#{$theme-name} {
     .sidebar .nav-dropdown-toggle::before {
         margin-top: -7px;
         width: 14px;
@@ -11,7 +23,7 @@
 /// iSAPUI
 /// card
 $iv-card-header-background-color: var(--light);
-#{$theme-name} {
+.#{$theme-name} {
     .card-header {
         color: black;
         background: $iv-card-header-background-color;

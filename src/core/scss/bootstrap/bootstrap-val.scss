@@ -1,3 +1,14 @@
+/*
+ * File: bootstrap-val.scss
+ * File Created: 2023-01-16 12:42:03
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified:
+ * Modified By:
+ * -----
+ */
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10,7 +21,7 @@
  @import "mixins";
 
  
- #{$theme-name} {
+ .#{$theme-name} {
     @import "global/root";
     @import "global/reboot";
 

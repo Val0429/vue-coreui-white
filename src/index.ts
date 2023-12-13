@@ -5,16 +5,22 @@
  */
 
 import { Vue, Component } from "vue-property-decorator";
-import { CoreUI as CoreUIBase } from './lib/index';
-export * from './lib';
+import { CoreUI as CoreUIBase } from "./lib/index";
+export * from "./lib";
 
 /// export for SideBarMenu
-import SidebarHeader from './lib/components/Sidebar/SidebarHeader.vue';
-import SidebarNav from './lib/components/Sidebar/SidebarNav.vue';
-import SidebarNavItem from './lib/components/Sidebar/SidebarNavItem.vue';
-import SidebarNavTitle from './lib/components/Sidebar/SidebarNavTitle.vue';
-import { SidebarNavDivider } from '@coreui/vue';
-export { SidebarHeader, SidebarNav, SidebarNavTitle, SidebarNavDivider, SidebarNavItem };
+import SidebarHeader from "./lib/components/Sidebar/SidebarHeader.vue";
+import SidebarNav from "./lib/components/Sidebar/SidebarNav.vue";
+import SidebarNavItem from "./lib/components/Sidebar/SidebarNavItem.vue";
+import SidebarNavTitle from "./lib/components/Sidebar/SidebarNavTitle.vue";
+import { SidebarNavDivider } from "@coreui/vue";
+export {
+  SidebarHeader,
+  SidebarNav,
+  SidebarNavTitle,
+  SidebarNavDivider,
+  SidebarNavItem,
+};
 
 /**
  * SidebarHeader
@@ -27,11 +33,11 @@ export { SidebarHeader, SidebarNav, SidebarNavTitle, SidebarNavDivider, SidebarN
  * All `Nav` components should be used as its children node.
  */
 
- /**
+/**
  * SidebarNavDivider
  */
 
- /**
+/**
  * SidebarNavTitle
  * @label - Title text.
  */
@@ -49,44 +55,69 @@ export { SidebarHeader, SidebarNav, SidebarNavTitle, SidebarNavDivider, SidebarN
  * Can contain children nodes.
  */
 
-
 /**
  * Simplest container
  */
 @Component({
-    components: { CoreUIBase }
+  components: { CoreUIBase },
 })
 export class CoreUI extends Vue {
-    mounted() {
-        const varList = ["--primary", "--secondary", "--success", "--warning", "--info", "--danger", "--light", "--dark"];
-        const varSubList = ["", "-100", "-200", "-300", "-400", "-500", "-600", "-700", "-800", "-900", "-yiq"];
+  mounted() {
+    const varList = [
+      "--primary",
+      "--secondary",
+      "--success",
+      "--warning",
+      "--info",
+      "--danger",
+      "--light",
+      "--dark",
+    ];
+    const varSubList = [
+      "",
+      "-100",
+      "-200",
+      "-300",
+      "-400",
+      "-500",
+      "-600",
+      "-700",
+      "-800",
+      "-900",
+      "-yiq",
+    ];
 
-        let style = getComputedStyle(document.getElementsByClassName("theme-coreui")[0]);
-        let todoList = [];
-        varList.forEach( v => {
-            varSubList.forEach( k => {
-                let key = `${v}${k}`;
-                todoList.push( () => {
-                    document.documentElement.style.setProperty(key, style.getPropertyValue(key));
-                });
-            });
+    let style = getComputedStyle(
+      document.getElementsByClassName("theme-coreui")[0]
+    );
+    let todoList: any[] = [];
+    varList.forEach((v) => {
+      varSubList.forEach((k) => {
+        let key = `${v}${k}`;
+        todoList.push(() => {
+          document.documentElement.style.setProperty(
+            key,
+            style.getPropertyValue(key)
+          );
         });
+      });
+    });
 
-        const doNext = () => {
-            setTimeout(() => {
-                let func = todoList.shift();
-                if (!func) return;
-                func();
-                doNext();
-            }, 0);
-        }
+    const doNext = () => {
+      setTimeout(() => {
+        let func = todoList.shift();
+        if (!func) return;
+        func();
         doNext();
-    }
-    render(createElement) {
-        return createElement(CoreUIBase, {
-            slots: this.$slots,
-            scopedSlots: this.$scopedSlots
-        });
-    }
+      }, 0);
+    };
+    doNext();
+  }
+  render(createElement) {
+    return createElement(CoreUIBase, {
+      slots: this.$slots,
+      scopedSlots: this.$scopedSlots,
+    });
+  }
 }
 export default CoreUI;

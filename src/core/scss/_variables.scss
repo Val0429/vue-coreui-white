@@ -1,3 +1,14 @@
+/*
+ * File: _variables.scss
+ * File Created: 2023-01-16 12:42:03
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified: 2023-12-13 02:25:40
+ * Modified By: Val Liu
+ * -----
+ */
+
 // Import CoreUI default colors
 @import "variables/colors";
 
@@ -207,6 +218,5 @@ $cursor-disabled: default !default;
 $body-bg: $gray-100;
 
 /// Val added
-$theme-name: 'theme-coreui' !default;
 $layout-direction: ltr !default;
 $sidebar-bg-real: $sidebar-bg !default;
