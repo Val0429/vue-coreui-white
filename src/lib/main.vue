@@ -1,6 +1,6 @@
 <template>
 
-    <iv-auto-transition class="theme-coreui" type="iv-fade-slide">
+    <iv-auto-transition :class="className" type="iv-fade-slide">
         <DefaultContainer v-if="!thisRouter.disableContainer" key="1">
             <template v-for="(_, slot) of $slots">
                 <slot :name="slot" />
@@ -18,9 +18,12 @@
 
 <script src="./main.ts"></script>
 
+<style lang="scss">
+@import 'assets/scss/style';
+</style>
+
 <style lang="scss" scoped>
 @import 'assets/scss/style';
-
 * {
     // export the theme name
     --theme-name: #{$theme-name};
