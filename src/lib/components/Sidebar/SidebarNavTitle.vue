@@ -1,10 +1,10 @@
 <template>
   <li class="nav-title">
     <template v-if="$slots.default">
-        <slot />
+      <slot />
     </template>
     <template v-else>
-      {{label}}
+      {{ label }}
     </template>
   </li>
 </template>
@@ -16,15 +16,15 @@
  * Copyright (c) 2019, iSAP Solution
  */
 
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export class SidebarNavTitle extends Vue {
-    @Prop({
-        type: String,
-        required: false
-    })
-    label: string;
+  @Prop({
+    type: String,
+    required: false,
+  })
+  label: string | undefined;
 }
 export default SidebarNavTitle;
 </script>
