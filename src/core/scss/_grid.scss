@@ -1,3 +1,14 @@
+/*
+ * File: _grid.scss
+ * File Created: 2023-01-16 12:42:03
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified: 2023-12-23 08:19:50
+ * Modified By: Val Liu
+ * -----
+ */
+
 .row.row-equal {
   padding-right: ($grid-gutter-width / 4);
   padding-left: ($grid-gutter-width / 4);
@@ -11,5 +22,5 @@
 }
 
 .main .container-fluid {
-  padding: 0 30px;
+  padding: 0 20px;
 }

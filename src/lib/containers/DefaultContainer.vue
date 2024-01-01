@@ -1,20 +1,25 @@
 <template>
   <div class="app" id="app">
-
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <b-link class="navbar-brand" to="/">
         <!-- <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="Logo">
         <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo"> -->
         <slot name="logo">
-          <img class="navbar-brand-full" src="/logo.png" width="89" height="25" alt="Logo">
+          <img
+            class="navbar-brand-full"
+            src="/logo.png"
+            width="89"
+            height="25"
+            alt="Logo"
+          />
         </slot>
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" />
 
       <div class="header-container">
         <slot name="header">
-            Use &lt;template #header /&gt; to define Header.
+          Use &lt;template #header /&gt; to define Header.
         </slot>
       </div>
 
@@ -44,10 +49,9 @@
     </AppHeader>
     <div class="app-body">
       <AppSidebar fixed>
-
         <slot name="nav">
           <SidebarNav>
-          Use &lt;template #nav /&gt; to define Nav.
+            Use &lt;template #nav /&gt; to define Nav.
           </SidebarNav>
         </slot>
 
@@ -55,17 +59,21 @@
         <SidebarForm />
         <SidebarNav :navItems="nav"></SidebarNav>
         <SidebarFooter /> -->
-        <SidebarMinimizer/>
+        <SidebarMinimizer />
       </AppSidebar>
       <main class="main">
-        <Breadcrumb class="bread-crumb" :list="list"/>
-          <iv-scrollbar ref="scrollbar" class="scroll-area" :settings="psSettings">
-            <div class="container-fluid">
-              <iv-fade-slide>
-                <router-view></router-view>
-              </iv-fade-slide>
-            </div>
-          </iv-scrollbar>
+        <Breadcrumb class="bread-crumb" :list="list" />
+        <!-- <iv-scrollbar
+          ref="scrollbar"
+          class="scroll-area"
+          :settings="psSettings"
+        > -->
+        <div class="container-fluid">
+          <iv-fade-slide>
+            <router-view></router-view>
+          </iv-fade-slide>
+        </div>
+        <!-- </iv-scrollbar> -->
       </main>
       <AppAside fixed>
         <!--aside-->
@@ -75,7 +83,7 @@
     <TheFooter class="footer">
       <!--footer-->
       <slot name="footer">
-          Use &lt;template #footer /&gt; to define Footer.
+        Use &lt;template #footer /&gt; to define Footer.
       </slot>
 
       <!-- <div class="ml-auto">
@@ -83,20 +91,30 @@
         <a href="https://coreui.io">CoreUI for Vue</a>
       </div> -->
     </TheFooter>
-
   </div>
 </template>
 
 <script>
-import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, /*SidebarNav,*/ Aside as AppAside, AsideToggler, Footer as TheFooter } from '@coreui/vue';
-import SidebarNav from './../components/Sidebar/SidebarNav.vue';
-import Breadcrumb from './../components/Breadcrumb/Breadcrumb.vue';
-import DefaultAside from './DefaultAside'
-import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar';
+import {
+  Header as AppHeader,
+  SidebarToggler,
+  Sidebar as AppSidebar,
+  SidebarFooter,
+  SidebarForm,
+  SidebarHeader,
+  SidebarMinimizer,
+  /*SidebarNav,*/ Aside as AppAside,
+  AsideToggler,
+  Footer as TheFooter,
+} from "@coreui/vue";
+import SidebarNav from "./../components/Sidebar/SidebarNav.vue";
+import Breadcrumb from "./../components/Breadcrumb/Breadcrumb.vue";
+import DefaultAside from "./DefaultAside";
+import DefaultHeaderDropdownAccnt from "./DefaultHeaderDropdownAccnt";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
 export default {
-  name: 'DefaultContainer',
+  name: "DefaultContainer",
   components: {
     AsideToggler,
     AppHeader,
@@ -112,38 +130,38 @@ export default {
     SidebarHeader,
     SidebarNav,
     SidebarMinimizer,
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
   },
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   computed: {
-    name () {
-      return this.$route.name
+    name() {
+      return this.$route.name;
     },
-    list () {
-      return this.$route.matched.filter((route) => route.name || route.path )
+    list() {
+      return this.$route.matched.filter((route) => route.name || route.path);
     },
-    psSettings () {
+    psSettings() {
       // ToDo: find better rtl fix
-        return {
-            maxScrollbarLength: 200,
-            minScrollbarLength: 40,
-            suppressScrollX: getComputedStyle(document.querySelector('html')).direction !== 'rtl',
-            wheelPropagation: false,
-            interceptRailY: styles => ({ ...styles, height: 0 })
-        }
-    }
+      return {
+        maxScrollbarLength: 200,
+        minScrollbarLength: 40,
+        suppressScrollX:
+          getComputedStyle(document.querySelector("html")).direction !== "rtl",
+        wheelPropagation: false,
+        interceptRailY: (styles) => ({ ...styles, height: 0 }),
+      };
+    },
   },
-  watch: {
-    $route(to, from) {
-      let scrollbar = this.$refs['scrollbar'];
-      if (!scrollbar) return;
-      scrollbar.top();
-    }
-  }
-}
+  // watch: {
+  //   $route(to, from) {
+  //     let scrollbar = this.$refs['scrollbar'];
+  //     if (!scrollbar) return;
+  //     scrollbar.top();
+  //   }
+  // }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -163,8 +181,10 @@ export default {
 .container-fluid {
   position: relative;
   box-sizing: border-box;
-  margin-top: 4rem;
-  margin-bottom: 50px;
+  margin-top: 45px;
+  padding-top: 20px !important;
+  overflow: auto;
+  height: calc(100vh - 35px - 100px);
 }
 .main {
   overflow: hidden;

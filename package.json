@@ -1,6 +1,6 @@
 {
   "name": "@valuis0429/vue-coreui-white",
-  "version": "1.0.35",
+  "version": "1.0.37",
   "description": "Open Source Bootstrap Admin Template",
   "main": "src/index.ts",
   "files": [
@@ -25,11 +25,9 @@
     "core-js": "2.6.5",
     "css-vars-ponyfill": "1.17.2",
     "font-awesome": "4.7.0",
-    "perfect-scrollbar": "1.4.0",
     "simple-line-icons": "2.4.1",
     "vue": "2.6.10",
     "vue-chartjs": "3.4.2",
-    "vue-perfect-scrollbar": "0.1.0",
     "vue-router": "3.0.2"
   },
   "devDependencies": {

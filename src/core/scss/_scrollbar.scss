@@ -1,0 +1,30 @@
+/*
+ * File: _scrollbar.scss
+ * File Created: 2023-12-23 08:20:49
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified: 2023-12-23 08:31:56
+ * Modified By: Val Liu
+ * -----
+ */
+
+/* For WebKit browsers */
+*::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track so it doesn't take space */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Scrollbar thumb color */
+  border-radius: 6px; /* Optional: for rounded corners */
+}
+
+// *:hover::-webkit-scrollbar-thumb,
+// *:active::-webkit-scrollbar-thumb {
+//   background: rgba(0, 0, 0, 0.5); /* Scrollbar thumb color on hover */
+// }

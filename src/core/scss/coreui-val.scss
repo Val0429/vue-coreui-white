@@ -4,17 +4,9 @@
  * Author: Val Liu <valuis0429@gmail.com>
  * 
  * -----
- * Last Modified: 2023-12-13 03:50:50
+ * Last Modified: 2023-12-23 08:24:25
  * Modified By: Val Liu
  * -----
- */
-
-/*!
- * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.9
- * @link https://coreui.io
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://coreui.io/license)
  */
 
 // Override Boostrap variables
@@ -28,62 +20,65 @@
 
 // wrap the namespace
 .#{$theme-name} {
-    // Animations
-    @import "animate";
+  // Animations
+  @import "animate";
 
-    // Vendors
-    @import "vendors";
+  // Vendors
+  @import "vendors";
 
-    // Components
-    @import "aside";
-    @import "avatars";
-    @import "badge";
-    @import "breadcrumb-menu";
-    @import "breadcrumb";
-    @import "brand-card";
-    @import "brand-buttons";
-    @import "button-group";
-    @import "buttons";
-    @import "callout";
-    @import "card";
-    @import "charts";
-    @import "dropdown";
-    @import "footer";
-    @import "grid";
-    @import "header";
-    @import "input-group";
-    @import "images";
-    @import "list-group";
-    @import "modal";
-    @import "nav";
-    @import "progress";
-    @import "progress-group";
-    @import "global/sidebar"; 
-    @import "switches";
-    @import "tables";
-    @import "widgets";
-    // Layout Options
-    @import "global/layout";
+  // Components
+  @import "aside";
+  @import "avatars";
+  @import "badge";
+  @import "breadcrumb-menu";
+  @import "breadcrumb";
+  @import "brand-card";
+  @import "brand-buttons";
+  @import "button-group";
+  @import "buttons";
+  @import "callout";
+  @import "card";
+  @import "charts";
+  @import "dropdown";
+  @import "footer";
+  @import "grid";
+  @import "header";
+  @import "input-group";
+  @import "images";
+  @import "list-group";
+  @import "modal";
+  @import "nav";
+  @import "progress";
+  @import "progress-group";
+  @import "global/sidebar";
+  @import "switches";
+  @import "tables";
+  @import "widgets";
 
-    @import "others";
+  // Layout Options
+  @import "global/layout";
 
-    // Utility classes
-    @import "utilities";
+  // Val: Scrollbar
+  @import "scrollbar";
 
-    // Right-to-left
-    @import "rtl";
+  @import "others";
 
-    // Custom Properties support for Internet Explorer
-    @import "ie-custom-properties";
+  // Utility classes
+  @import "utilities";
 
-    // temp fixes
-    @import "fixes";
+  // Right-to-left
+  @import "rtl";
 
-    /// Val: provide yiq colors
-    @each $color, $value in $theme-colors {
-        .#{$color}-yiq {
-            color: #{color-yiq($value)};
-        }
+  // Custom Properties support for Internet Explorer
+  @import "ie-custom-properties";
+
+  // temp fixes
+  @import "fixes";
+
+  /// Val: provide yiq colors
+  @each $color, $value in $theme-colors {
+    .#{$color}-yiq {
+      color: #{color-yiq($value)};
     }
+  }
 }
-

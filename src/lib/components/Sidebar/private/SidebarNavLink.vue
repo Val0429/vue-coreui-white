@@ -72,6 +72,7 @@ export class SidebarNavLink extends Vue {
   /// badge, variant
   /// private helpers
   private get isExternalLink() {
+    if (this.url == null) return false;
     return Boolean(/^http/.test(this.url));
   }
 

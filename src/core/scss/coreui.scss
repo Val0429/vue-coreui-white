@@ -1,9 +1,12 @@
-/*!
- * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.9
- * @link https://coreui.io
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://coreui.io/license)
+/*
+ * File: coreui.scss
+ * File Created: 2023-01-16 12:42:02
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified:
+ * Modified By:
+ * -----
  */
 
 // Override Boostrap variables
@@ -45,13 +48,16 @@
 @import "nav";
 @import "progress";
 @import "progress-group";
-@import "sidebar"; 
+@import "sidebar";
 @import "switches";
 @import "tables";
 @import "widgets";
 
 // Layout Options
 @import "layout";
+
+// Val: Scrollbar
+@import "scrollbar";
 
 @import "others";
 
