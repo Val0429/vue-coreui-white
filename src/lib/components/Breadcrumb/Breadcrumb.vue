@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     getName(item) {
-      return this._(item.name || item.path);
+      return this.$_(item.name || item.path);
     },
     hasComponent(item) {
       /// function: has component

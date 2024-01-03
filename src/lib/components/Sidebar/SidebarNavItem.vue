@@ -123,12 +123,12 @@ export default class SidebarNavItem extends Vue {
   }
 
   private parseName(name): string {
-    return this._(name);
+    return this.$_(name);
     // let regex = /_\(\'*(.*)\'\)/;
     // if (!name) return name;
     // let matches = name.match(regex);
     // if (!matches || matches.length < 2) return name;
-    // return this._(matches[1]);
+    // return this.$_(matches[1]);
   }
 
   private get classIcon() {
