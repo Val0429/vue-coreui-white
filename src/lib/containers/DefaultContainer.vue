@@ -1,5 +1,5 @@
 <template>
-  <div class="app" id="app">
+  <div id="app" class="app">
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <b-link class="navbar-brand" to="/">
@@ -91,6 +91,9 @@
         <a href="https://coreui.io">CoreUI for Vue</a>
       </div> -->
     </TheFooter>
+
+    <!-- portal vue modal -->
+    <portal-target name="modal-outlet" />
   </div>
 </template>
 

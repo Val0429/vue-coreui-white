@@ -4,16 +4,16 @@
  * Author: Val Liu <valuis0429@gmail.com>
  * 
  * -----
- * Last Modified: 2023-12-13 02:37:14
+ * Last Modified: 2024-01-08 01:57:12
  * Modified By: Val Liu
  * -----
  */
 
-
 /// Val [Theme] theme customization for basic coreui component goes here.
-// Here you can add other styles
+// Here you can add other styles.
+// should start with `v-theme`.
 
-$theme-name: "theme-coreui" !default;
+$theme-name: "v-theme-coreui" !default;
 
 /// navbrand
 $navbar-brand-width: 205px;

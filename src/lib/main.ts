@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2023-12-13 05:46:39
+ * Last Modified: 2024-01-08 02:05:39
  * Modified By: Val Liu
  * -----
  */
@@ -43,12 +43,20 @@ export class CoreUI extends Vue {
   }
 
   /// private helper
-  className: string = "theme";
+  className: string = "v-theme-";
   private mounted() {
-    // this.$nextTick(() => {
     const name = getComputedStyle(this.$el).getPropertyValue("--theme-name");
     this.className = name;
-    // });
+
+    /// remove all body classes start with `v-theme-*`
+    const regex = /^v-theme-/;
+    document.body.classList.forEach(
+      (cls) => regex.test(cls) && document.body.classList.remove(cls)
+    );
+    /// add new class into
+    document.body.classList.add(name);
+
+    /// reinstall css
     this.$nextTick(() => this.reinstallCss());
   }
 
