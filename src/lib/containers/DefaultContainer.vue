@@ -75,10 +75,8 @@
         </div>
         <!-- </iv-scrollbar> -->
       </main>
-      <AppAside fixed>
-        <!--aside-->
-        <!-- <DefaultAside/> -->
-      </AppAside>
+      <!-- <AppAside fixed>
+      </AppAside> -->
     </div>
     <TheFooter class="footer">
       <!--footer-->
@@ -91,9 +89,6 @@
         <a href="https://coreui.io">CoreUI for Vue</a>
       </div> -->
     </TheFooter>
-
-    <!-- portal vue modal -->
-    <portal-target name="modal-outlet" />
   </div>
 </template>
 
@@ -114,7 +109,7 @@ import SidebarNav from "./../components/Sidebar/SidebarNav.vue";
 import Breadcrumb from "./../components/Breadcrumb/Breadcrumb.vue";
 import DefaultAside from "./DefaultAside";
 import DefaultHeaderDropdownAccnt from "./DefaultHeaderDropdownAccnt";
-import VuePerfectScrollbar from "vue-perfect-scrollbar";
+// import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
 export default {
   name: "DefaultContainer",
@@ -133,7 +128,7 @@ export default {
     SidebarHeader,
     SidebarNav,
     SidebarMinimizer,
-    VuePerfectScrollbar,
+    // VuePerfectScrollbar,
   },
   data() {
     return {};
@@ -185,7 +180,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   margin-top: 45px;
-  padding-top: 20px !important;
+  padding: 0 !important;
   overflow: auto;
   height: calc(100vh - 35px - 100px);
 }

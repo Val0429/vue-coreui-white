@@ -1,5 +1,17 @@
+/*
+ * File: _card.scss
+ * File Created: 2023-01-16 12:42:02
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified:
+ * Modified By:
+ * -----
+ */
+
 .card {
-  margin-bottom: ($spacer * 1.5);
+  //margin-bottom: ($spacer * 1.5);
+  margin-bottom: 0 !important;
 
   // Cards with color accent
   @each $color, $value in $theme-colors {
@@ -19,7 +31,7 @@
 }
 
 .card-placeholder {
-  background: rgba(0, 0, 0, .025);
+  background: rgba(0, 0, 0, 0.025);
   border: 1px dashed $gray-300;
 }
 
@@ -59,7 +71,7 @@
   display: inline-block;
   width: ($card-spacer-y * 2) + ($font-size-base * $line-height-base);
   padding: $card-spacer-y 0;
-  margin: (- $card-spacer-y) $card-spacer-x (- $card-spacer-y) (- $card-spacer-x);
+  margin: (-$card-spacer-y) $card-spacer-x (-$card-spacer-y) (-$card-spacer-x);
   line-height: inherit;
   color: $card-icon-color;
   text-align: center;
@@ -70,14 +82,14 @@
 .card-header-actions {
   display: inline-block;
   float: right;
-  margin-right: - ($spacer / 4);
+  margin-right: -($spacer / 4);
 }
 
 *[dir="rtl"] {
   .card-header-actions {
     float: left;
     margin-right: auto;
-    margin-left: - ($spacer / 4);
+    margin-left: -($spacer / 4);
   }
 }
 
@@ -91,7 +103,6 @@
   }
 }
 
-
 // Cards with color accent
 @each $color, $value in $theme-colors {
   .card-accent-#{$color} {
@@ -100,16 +111,15 @@
 }
 
 .card-full {
-  margin-top: - $spacer;
-  margin-right: - $grid-gutter-width / 2;
-  margin-left: - $grid-gutter-width / 2;
+  margin-top: -$spacer;
+  margin-right: -$grid-gutter-width / 2;
+  margin-left: -$grid-gutter-width / 2;
   border: 0;
   border-bottom: $card-border-width solid $border-color;
 }
 
 @include media-breakpoint-up(sm) {
   .card-columns {
-
     &.cols-2 {
       column-count: 2;
     }

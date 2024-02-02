@@ -1,14 +1,14 @@
 <template>
   <nav v-if="hasSlotDefault" class="sidebar-nav">
-    <VuePerfectScrollbar
+    <!-- <VuePerfectScrollbar
       class="scroll-area"
       :settings="psSettings"
       @ps-scroll-y="scrollHandle"
-    >
-      <ul class="nav">
-        <slot></slot>
-      </ul>
-    </VuePerfectScrollbar>
+    > -->
+    <ul class="nav">
+      <slot></slot>
+    </ul>
+    <!-- </VuePerfectScrollbar> -->
   </nav>
 </template>
 
@@ -19,12 +19,13 @@
  * Copyright (c) 2019, iSAP Solution
  */
 
-import VuePerfectScrollbar from "vue-perfect-scrollbar";
+// import VuePerfectScrollbar from "vue-perfect-scrollbar";
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({
-  components: { VuePerfectScrollbar },
-})
+// @Component({
+//   components: { VuePerfectScrollbar },
+// })
+@Component
 export default class SidebarNav extends Vue {
   private psSettings() {
     // ToDo: find better rtl fix
