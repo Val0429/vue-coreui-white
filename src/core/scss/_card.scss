@@ -4,8 +4,8 @@
  * Author: Val Liu <valuis0429@gmail.com>
  * 
  * -----
- * Last Modified:
- * Modified By:
+ * Last Modified: 2024-02-02 02:29:32
+ * Modified By: Val Liu
  * -----
  */
 
@@ -41,7 +41,8 @@
   }
 
   .nav-tabs {
-    margin-top: -$card-spacer-y;
+    margin-top: 0;
+    //margin-top: -$card-spacer-y;
     margin-bottom: -$card-spacer-y;
     border-bottom: 0;
 
