@@ -1,3 +1,14 @@
+/*
+ * File: _sidebar.scss
+ * File Created: 2023-01-16 12:42:03
+ * Author: Val Liu <valuis0429@gmail.com>
+ * 
+ * -----
+ * Last Modified:
+ * Modified By:
+ * -----
+ */
+
 // stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .sidebar {
   display: flex;
@@ -18,7 +29,7 @@
     color: $sidebar-color;
     background: 0;
     border: 0;
-    opacity: .8;
+    opacity: 0.8;
 
     &:hover {
       opacity: 1;
@@ -75,7 +86,7 @@
   .nav-item {
     position: relative;
     margin: 0;
-    transition: background .3s ease-in-out;
+    transition: background 0.3s ease-in-out;
   }
 
   .nav-dropdown-items {
@@ -83,7 +94,7 @@
     padding: 0;
     margin: 0;
     overflow-y: hidden;
-    transition: max-height .3s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
 
     .nav-item {
       padding: 0;
@@ -168,7 +179,7 @@
       &.nav-link-#{$color} {
         background: $value;
         .nav-icon {
-          color: rgba(255, 255, 255, .7);
+          color: rgba(255, 255, 255, 0.7);
         }
         &:hover {
           background: darken($value, 5%);
@@ -196,7 +207,7 @@
       background-image: $sidebar-nav-dropdown-indicator;
       background-repeat: no-repeat;
       background-position: center;
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     .badge {
@@ -261,7 +272,7 @@
     }
   }
 
-  @if (lightness( $sidebar-bg ) < 40) {
+  @if (lightness($sidebar-bg) < 40) {
     .progress {
       background-color: lighten($sidebar-bg, 15%) !important;
     }
@@ -293,7 +304,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: $sidebar-minimizer-height / 4;
-      transition: .3s;
+      transition: 0.3s;
     }
 
     &:focus,
@@ -351,7 +362,6 @@
         }
 
         &.nav-dropdown-toggle {
-
           &::before {
             top: 30px;
           }
@@ -420,7 +430,6 @@
             }
           }
           .nav-link {
-
             &.disabled,
             :disabled {
               background: $sidebar-nav-link-disabled-bg;
@@ -476,6 +485,11 @@
         &.nav-dropdown-toggle::before {
           display: none;
         }
+      }
+
+      /// Val: fix the minimized padding left
+      .nav-link.nav-dropdown-toggle {
+        padding-left: 13px;
       }
 
       .nav-dropdown-items {
@@ -599,7 +613,7 @@
     }
 
     .nav-link.nav-dropdown-toggle {
-      .badge  {
+      .badge {
         margin-right: auto;
         margin-left: 16px;
       }

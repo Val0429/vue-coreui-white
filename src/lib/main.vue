@@ -1,6 +1,6 @@
 <template>
   <iv-auto-transition :class="className" type="iv-fade-slide">
-    <DefaultContainer v-if="!thisRouter.disableContainer" key="1">
+    <DefaultContainer v-if="thisRouter.container !== null" key="1">
       <template v-for="(_, slot) of $slots">
         <slot :name="slot" />
       </template>
