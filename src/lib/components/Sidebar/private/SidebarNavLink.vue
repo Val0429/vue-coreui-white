@@ -32,6 +32,7 @@ import { FindRouter } from "@root/core/router";
 import { sjPermissions } from "@root/core/private/plugins/authentication";
 import { filter } from "rxjs/operators";
 import { isObjectEmpty } from "@root/core/utilities";
+import { PermissionHelper } from "@root/core/utilities/permission-helper";
 let config = require("@/config/default/debug");
 
 interface IData {
@@ -82,17 +83,26 @@ export class SidebarNavLink extends Vue {
     let routers = FindRouter({ path: this.url });
     if (routers.length === 0) return false;
     let router = routers[routers.length - 1];
-    /// 2) allow non permission
-    let permission = router.permission;
-    if (permission === false) return false;
-    /// 3) default: true | undefined, check login status
-    if (permission === true || permission === undefined) {
-      if (isObjectEmpty(this.$permissions)) return true;
-      //if (!this.$permissions) return true;
-      return false;
-    }
-    /// 4) check permission
-    return !((this.$permissions || {})[permission as string] || {})["Get"];
+
+    /// check permission
+    // let permission = router.permission;
+    // if (permission === true || permission === undefined) {
+    //   if (isObjectEmpty(this.$permissions)) return true;
+    //   return false;
+    // }
+    return !PermissionHelper.authRouter.call(this, router);
+
+    // /// 2) allow non permission
+    // let permission = router.permission;
+    // if (permission === false) return false;
+    // /// 3) default: true | undefined, check login status
+    // if (permission === true || permission === undefined) {
+    //   if (isObjectEmpty(this.$permissions)) return true;
+    //   //if (!this.$permissions) return true;
+    //   return false;
+    // }
+    // /// 4) check permission
+    // return !((this.$permissions || {})[permission as string] || {})["Get"];
   }
 
   private isInvalid() {
