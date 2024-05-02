@@ -32,7 +32,7 @@
         <div class="dropdown-btn" @click="handleClick" />
       </div>
     </div>
-    <ul class="nav-dropdown-items">
+    <ul class="nav-dropdown-items" v-if="!isBlocked()">
       <slot></slot>
     </ul>
   </li>
@@ -46,6 +46,67 @@
   </SidebarNavItemCore>
 </template>
 
+<style lang="scss" scoped>
+.nav-item ::v-deep .nav-item {
+  text-indent: 8px;
+}
+::v-deep .nav-icon {
+  min-width: 1.3rem;
+}
+.dropdown-container {
+  margin-top: -12px;
+  margin-bottom: -12px;
+  .dropdown-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@mixin common-styles {
+  .blocked-prod,
+  .invalid-prod {
+    display: none;
+  }
+  .invalid {
+    position: relative;
+    background: var(--warning) !important;
+    border: 2px dashed var(--danger);
+    pointer-events: none;
+  }
+  .invalid::after {
+    position: absolute;
+    right: 3px;
+    bottom: 0;
+    font-size: 10px;
+    color: var(--light);
+    content: var(--content-invalid) !important;
+  }
+
+  .blocked {
+    position: relative;
+    background: var(--danger) !important;
+    border: 2px dashed var(--info);
+    pointer-events: none;
+  }
+  .blocked::after {
+    position: absolute;
+    right: 3px;
+    bottom: 0;
+    font-size: 10px;
+    color: var(--light);
+    content: var(--permission-denied) !important;
+  }
+}
+
+@include common-styles;
+::v-deep {
+  @include common-styles;
+}
+</style>
+
 <script lang="ts">
 /*
  * Created on Tue Jul 30 2019
@@ -57,6 +118,8 @@ import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { SidebarNavItem as SidebarNavItemCore } from "@coreui/vue";
 import SidebarNavLinkCore from "./private/SidebarNavLink.vue";
 import { FindRouter } from "@/../core/router";
+import { PermissionHelper } from "@root/core/utilities/permission-helper";
+let config = require("@/config/default/debug");
 
 interface IData {
   variant?: string;
@@ -158,28 +221,58 @@ export default class SidebarNavItem extends Vue {
     return Boolean(/^http/.test(this.url));
   }
 
-  private classList() {
-    return ["nav-link"];
+  private isBlocked() {
+    /// 1) allow external link
+    if (this.isExternalLink) return false;
+    let routers = FindRouter({ path: this.url });
+    if (routers.length === 0) return false;
+    let router = routers[routers.length - 1];
+
+    /// check permission
+    return !PermissionHelper.authRouter.call(this, router);
   }
+
+  private isInvalid() {
+    let routers = FindRouter({ path: this.url });
+    return routers.length === 0;
+  }
+
+  // private classList() {
+  //   return ["nav-link"];
+  // }
+
+  private classList() {
+    return [
+      "nav-link",
+      this.data && this.data.variant ? `nav-link-${this.data.variant}` : "",
+      this.isBlocked()
+        ? config.prodMode || !config.showNonePermissionBlock
+          ? "blocked-prod"
+          : "blocked"
+        : "",
+      this.isInvalid()
+        ? config.prodMode || !config.showNonePermissionBlock
+          ? "invalid-prod"
+          : "invalid"
+        : "",
+    ];
+  }
+
+  // private classList() {
+  //   return [
+  //     "nav-link",
+  //     this.data && this.data.variant ? `nav-link-${this.data.variant}` : "",
+  //     this.isBlocked()
+  //       ? config.prodMode || !config.showNonePermissionBlock
+  //         ? "blocked-prod"
+  //         : "blocked"
+  //       : "",
+  //     this.isInvalid()
+  //       ? config.prodMode || !config.showNonePermissionBlock
+  //         ? "invalid-prod"
+  //         : "invalid"
+  //       : "",
+  //   ];
+  // }
 }
 </script>
-
-<style lang="scss" scoped>
-.nav-item ::v-deep .nav-item {
-  text-indent: 8px;
-}
-::v-deep .nav-icon {
-  min-width: 1.3rem;
-}
-.dropdown-container {
-  margin-top: -12px;
-  margin-bottom: -12px;
-  .dropdown-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 45px;
-    height: 45px;
-  }
-}
-</style>

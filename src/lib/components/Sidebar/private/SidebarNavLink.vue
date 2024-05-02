@@ -194,39 +194,6 @@ export default SidebarNavLink;
   position: relative;
   top: 0.05rem;
 }
-.blocked-prod,
-.invalid-prod {
-  display: none;
-}
-.invalid {
-  position: relative;
-  background: var(--warning) !important;
-  border: 2px dashed var(--danger);
-  pointer-events: none;
-}
-.invalid::after {
-  position: absolute;
-  right: 3px;
-  bottom: 0;
-  font-size: 10px;
-  color: var(--light);
-  content: var(--content-invalid) !important;
-}
-
-.blocked {
-  position: relative;
-  background: var(--danger) !important;
-  border: 2px dashed var(--info);
-  pointer-events: none;
-}
-.blocked::after {
-  position: absolute;
-  right: 3px;
-  bottom: 0;
-  font-size: 10px;
-  color: var(--light);
-  content: var(--permission-denied) !important;
-}
 </style>
 
 <style lang="scss">

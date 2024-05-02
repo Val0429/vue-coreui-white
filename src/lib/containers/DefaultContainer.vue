@@ -138,7 +138,7 @@ export default {
       return this.$route.name;
     },
     list() {
-      return this.$route.matched.filter((route) => route.name || route.path);
+      return this.$route.matched.filter((route) => route.name);
     },
     psSettings() {
       // ToDo: find better rtl fix
