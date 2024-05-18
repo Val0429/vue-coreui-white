@@ -5,16 +5,17 @@
     :to="url"
     disabled
   >
-    <div class="nav-link nav-dropdown-toggle" style="cursor: pointer">
+    <div
+      class="nav-link nav-dropdown-toggle"
+      style="cursor: pointer"
+      :class="blockClassList()"
+    >
       <div class="row dropdown-container">
-        <!-- <div style="flex: 1">
-                    <i :class="classIcon"></i> {{getLabel()}}
-                </div> -->
         <div
           v-if="!hasComponent"
           style="flex: 1"
-          :class="classList()"
           @click="handleClick"
+          :class="classList()"
         >
           <i :class="classIcon"></i> {{ getLabel() }}
         </div>
@@ -68,7 +69,7 @@
 @mixin common-styles {
   .blocked-prod,
   .invalid-prod {
-    display: none;
+    display: none !important;
   }
   .invalid {
     position: relative;
@@ -241,10 +242,8 @@ export default class SidebarNavItem extends Vue {
   //   return ["nav-link"];
   // }
 
-  private classList() {
+  private blockClassList() {
     return [
-      "nav-link",
-      this.data && this.data.variant ? `nav-link-${this.data.variant}` : "",
       this.isBlocked()
         ? config.prodMode || !config.showNonePermissionBlock
           ? "blocked-prod"
@@ -255,6 +254,13 @@ export default class SidebarNavItem extends Vue {
           ? "invalid-prod"
           : "invalid"
         : "",
+    ];
+  }
+
+  private classList() {
+    return [
+      "nav-link",
+      this.data && this.data.variant ? `nav-link-${this.data.variant}` : "",
     ];
   }
 
