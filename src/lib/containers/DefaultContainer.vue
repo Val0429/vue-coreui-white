@@ -109,7 +109,6 @@ import SidebarNav from "./../components/Sidebar/SidebarNav.vue";
 import Breadcrumb from "./../components/Breadcrumb/Breadcrumb.vue";
 import DefaultAside from "./DefaultAside";
 import DefaultHeaderDropdownAccnt from "./DefaultHeaderDropdownAccnt";
-// import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
 export default {
   name: "DefaultContainer",

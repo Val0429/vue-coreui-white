@@ -1,6 +1,6 @@
 {
   "name": "@valuis0429/vue-coreui-white",
-  "version": "1.0.57",
+  "version": "1.0.59",
   "description": "Open Source Bootstrap Admin Template",
   "main": "src/index.ts",
   "files": [
