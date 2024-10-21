@@ -70,7 +70,9 @@
         > -->
         <div class="container-fluid">
           <iv-fade-slide>
-            <router-view></router-view>
+            <slot name="body">
+              <router-view></router-view>
+            </slot>
           </iv-fade-slide>
         </div>
         <!-- </iv-scrollbar> -->
