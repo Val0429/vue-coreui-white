@@ -4,7 +4,7 @@
  * Author: Val Liu <valuis0429@gmail.com>
  *
  * -----
- * Last Modified: 2024-01-08 02:05:39
+ * Last Modified: 2024-11-21 08:57:49
  * Modified By: Val Liu
  * -----
  */
@@ -17,7 +17,7 @@ import DefaultContainer from "./containers/DefaultContainer.vue";
 import "core-js/es6/promise";
 import "core-js/es6/string";
 import "core-js/es7/array";
-import BootstrapVue from "bootstrap-vue";
+import BootstrapVue from "@valuis0429/bootstrap-vue";
 import { FindRouter } from "@/../core";
 
 Vue.use(BootstrapVue);
