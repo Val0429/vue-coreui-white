@@ -63,6 +63,9 @@ export class SidebarNavLink extends Vue {
   })
   icon: string | undefined;
 
+  @Prop({ type: Boolean, default: false })
+  disabled!: boolean;
+
   @Prop({
     type: Object,
     required: false,
@@ -114,6 +117,7 @@ export class SidebarNavLink extends Vue {
     return [
       "nav-link",
       this.data && this.data.variant ? `nav-link-${this.data.variant}` : "",
+      this.disabled ? "is-disabled" : "",
       this.isBlocked()
         ? config.prodMode || !config.showNonePermissionBlock
           ? "blocked-prod"

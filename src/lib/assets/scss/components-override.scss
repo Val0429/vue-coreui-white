@@ -24,6 +24,14 @@
 /// card
 $iv-card-header-background-color: var(--light);
 .#{$theme-name} {
+    .breadcrumb {
+        margin-bottom: 0;
+        box-shadow: 0 0.125rem 0.25rem rgba(8, 10, 12, 0.075);
+    }
+    .app-footer {
+        box-shadow: 0 -0.125rem 0.25rem rgba(8, 10, 12, 0.075);
+    }
+
     .card-header {
         color: black;
         background: $iv-card-header-background-color;
@@ -43,5 +51,27 @@ $iv-card-header-background-color: var(--light);
     /// toolbox
     .btn-iv-toolbox-default {
         @extend .btn-light;
+    }
+
+    .sidebar {
+        background-color: rgb(33, 38, 49);
+
+        .nav-link {
+            &.active, &:hover {
+                background-color: rgb(42, 48, 61);
+            }
+        }
+    }
+
+    button:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 .2rem rgba($primary, .35);
+    }
+
+    button:focus {
+        outline: 1px dotted;
+        // 舊瀏覽器／非 :focus-visible 環境的回退
+        box-shadow: 0 0 0 .2rem rgba($primary, .35);
     }
 }

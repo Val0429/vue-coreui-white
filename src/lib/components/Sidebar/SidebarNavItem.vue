@@ -1,9 +1,8 @@
 <template>
   <li
     v-if="$slots.default"
-    :class="{ 'nav-item': true, 'nav-dropdown': true, open: innateOpen }"
+    :class="{ 'nav-item': true, 'nav-dropdown': true, open: innateOpen, 'is-disabled': disabled }"
     :to="url"
-    disabled
   >
     <div
       class="nav-link nav-dropdown-toggle"
@@ -25,6 +24,7 @@
           :is="isExternalLink ? 'a' : 'router-link'"
           :href="url"
           :to="url"
+          :disabled="disabled"
           :class="classList()"
         >
           <i :class="classIcon"></i> {{ getLabel() }}
@@ -43,6 +43,7 @@
       :url="url"
       :icon="icon"
       :data="data"
+      :disabled="disabled"
     />
   </SidebarNavItemCore>
 </template>
@@ -108,6 +109,14 @@
 }
 </style>
 
+<style lang="scss">
+li.nav-item.is-disabled, li.nav-item > a.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed !important;
+  pointer-events: none; // 阻擋所有互動
+}
+</style>
+
 <script lang="ts">
 /*
  * Created on Tue Jul 30 2019
@@ -152,6 +161,9 @@ export default class SidebarNavItem extends Vue {
   })
   icon: string | undefined;
 
+  @Prop({ type: Boolean, default: false })
+  disabled!: boolean;
+
   @Prop({
     type: Boolean,
     default: true,
@@ -174,8 +186,8 @@ export default class SidebarNavItem extends Vue {
 
   private handleClick(e) {
     e.preventDefault();
+    if (this.disabled) return;
     this.innateOpen = !this.innateOpen;
-    //e.target.parentElement.classList.toggle('open');
   }
 
   private getLabel(): string {
